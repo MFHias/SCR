@@ -2,7 +2,10 @@
 
 namespace Data;
 
-//use Bookshop\Category;
+// include('iDataManager.php');
+// include(__DIR__ . '/../Bookshop/Category.php');
+
+use Bookshop\Category;
 //use Bookshop\Book;
 //use Bookshop\User;
 //use Bookshop\PagingResult;
@@ -16,9 +19,7 @@ namespace Data;
  * @subpackage
  * @author     John Doe <jd@fbi.gov>
  */
-class DataManager
-//    implements IDataManager
-{
+class DataManager implements IDataManager {
 
 
     /**
@@ -31,10 +32,10 @@ class DataManager
         switch ($type) {
             case 'categories':
                 $data = [
-//                    1 => new Category(1, "Mobile & Wireless Computing"),
-//                    2 => new Category(2, "Functional Programming"),
-//                    3 => new Category(3, "C / C++"),
-//                    4 => new Category(4, "<< New Publications >>"),
+                    1 => new Category(1, "Mobile & Wireless Computing"),
+                    2 => new Category(2, "Functional Programming"),
+                    3 => new Category(3, "C / C++"),
+                    4 => new Category(4, "<< New Publications >>"),
                 ];
                 break;
             case 'books':
@@ -63,5 +64,11 @@ class DataManager
     }
 
     // /mock data
+
+
+
+    public static function getCategories() : array {
+        return self::getMockData('categories');
+    }
 
 }
